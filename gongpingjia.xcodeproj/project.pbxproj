@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BA873C8A1859FDE500BAB4DF /* SelectCarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA873C891859FDE500BAB4DF /* SelectCarViewController.m */; };
 		BA8B119F1859E631006C8657 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA8B119E1859E631006C8657 /* UIKit.framework */; };
 		BA8B11A11859E631006C8657 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA8B11A01859E631006C8657 /* Foundation.framework */; };
 		BA8B11A31859E631006C8657 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA8B11A21859E631006C8657 /* CoreGraphics.framework */; };
@@ -17,10 +18,12 @@
 		BA8B11B31859E631006C8657 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BA8B11B21859E631006C8657 /* Default@2x.png */; };
 		BA8B11B51859E631006C8657 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BA8B11B41859E631006C8657 /* Default-568h@2x.png */; };
 		BA8B11B81859E631006C8657 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA8B11B61859E631006C8657 /* MainStoryboard.storyboard */; };
-		BA8B11BB1859E631006C8657 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA8B11BA1859E631006C8657 /* ViewController.m */; };
+		BA8B11BB1859E631006C8657 /* MianViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA8B11BA1859E631006C8657 /* MianViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BA873C881859FDE500BAB4DF /* SelectCarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectCarViewController.h; sourceTree = "<group>"; };
+		BA873C891859FDE500BAB4DF /* SelectCarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectCarViewController.m; sourceTree = "<group>"; };
 		BA8B119B1859E631006C8657 /* gongpingjia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gongpingjia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA8B119E1859E631006C8657 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		BA8B11A01859E631006C8657 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -35,8 +38,8 @@
 		BA8B11B21859E631006C8657 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		BA8B11B41859E631006C8657 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		BA8B11B71859E631006C8657 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		BA8B11B91859E631006C8657 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		BA8B11BA1859E631006C8657 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		BA8B11B91859E631006C8657 /* MianViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MianViewController.h; sourceTree = "<group>"; };
+		BA8B11BA1859E631006C8657 /* MianViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MianViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,9 +89,11 @@
 				BA8B11AD1859E631006C8657 /* AppDelegate.h */,
 				BA8B11AE1859E631006C8657 /* AppDelegate.m */,
 				BA8B11B61859E631006C8657 /* MainStoryboard.storyboard */,
-				BA8B11B91859E631006C8657 /* ViewController.h */,
-				BA8B11BA1859E631006C8657 /* ViewController.m */,
+				BA8B11B91859E631006C8657 /* MianViewController.h */,
+				BA8B11BA1859E631006C8657 /* MianViewController.m */,
 				BA8B11A51859E631006C8657 /* Supporting Files */,
+				BA873C881859FDE500BAB4DF /* SelectCarViewController.h */,
+				BA873C891859FDE500BAB4DF /* SelectCarViewController.m */,
 			);
 			path = gongpingjia;
 			sourceTree = "<group>";
@@ -175,7 +180,8 @@
 			files = (
 				BA8B11AB1859E631006C8657 /* main.m in Sources */,
 				BA8B11AF1859E631006C8657 /* AppDelegate.m in Sources */,
-				BA8B11BB1859E631006C8657 /* ViewController.m in Sources */,
+				BA8B11BB1859E631006C8657 /* MianViewController.m in Sources */,
+				BA873C8A1859FDE500BAB4DF /* SelectCarViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,6 +304,7 @@
 				BA8B11C01859E631006C8657 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
