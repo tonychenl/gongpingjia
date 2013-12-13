@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>299F0DCE-E0D6-4387-8463-90FBFC218434</string>
+	<key>IDESourceControlProjectName</key>
+	<string>gongpingjia</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>3D855316-071F-4021-9DBD-1BB1B45CB016</key>
+		<string>https://github.com/tonychenl/gongpingjia.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>gongpingjia.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>3D855316-071F-4021-9DBD-1BB1B45CB016</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/tonychenl/gongpingjia.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>3D855316-071F-4021-9DBD-1BB1B45CB016</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>3D855316-071F-4021-9DBD-1BB1B45CB016</string>
+			<key>IDESourceControlWCCName</key>
+			<string>gongpingjia</string>
+		</dict>
+	</array>
+</dict>
+</plist>

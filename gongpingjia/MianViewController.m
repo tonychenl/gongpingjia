@@ -44,7 +44,10 @@
     NSIndexPath *path = [NSIndexPath indexPathForRow:0 inSection:0];
     UITableViewCell  *cell = [self.tableView cellForRowAtIndexPath:path];
     dateLabel = (UILabel*)[cell viewWithTag:101];
-    [self setDateLabel:[NSDate date]];
+    if (self.date == nil) {
+        self.date = [datePicker date];
+        [self setDateLabel:[NSDate date]];
+    }
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
@@ -57,8 +60,8 @@
 
 -(void)DatePickerDoneClick:(id)sender
 {
-    date = [datePicker date];
-    [self setDateLabel:date];
+    self.date = [datePicker date];
+    [self setDateLabel:self.date];
     [dateActionSheet dismissWithClickedButtonIndex:0 animated:YES];
 }
 
@@ -72,11 +75,11 @@
     }
 }
 
--(void)setDateLabel:(NSDate *)date
+-(void)setDateLabel:(NSDate *)datex
 {
     NSDateFormatter *f = [[NSDateFormatter alloc] init];
     [f setDateFormat:@"YYYY年MM月"];
-    dateLabel.text = [f stringFromDate:date];
+    dateLabel.text = [f stringFromDate:datex];
 }
 
 - (void)didReceiveMemoryWarning

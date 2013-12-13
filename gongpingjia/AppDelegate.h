@@ -11,5 +11,8 @@
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+@property (strong,nonatomic) NSArray  *brand_first_letter;
+@property (strong,nonatomic) NSArray  *brand_content;
+@property (strong,nonatomic) NSDictionary *car_model;
 
 @end

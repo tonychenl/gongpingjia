@@ -14,6 +14,6 @@
     UILabel  *dateLabel;
     UIActionSheet *dateActionSheet;
     UIDatePicker  *datePicker;
-    NSDate *date;
 }
+@property(strong,nonatomic) NSDate *date;
 @end

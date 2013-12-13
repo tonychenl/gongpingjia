@@ -7,6 +7,9 @@
 //
 
 #import "SelectCarViewController.h"
+#import "BrandModel.h"
+#import "BrandCell.h"
+#import "AppDelegate.h"
 
 @interface SelectCarViewController ()
 
@@ -14,24 +17,12 @@
 
 @implementation SelectCarViewController
 
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    brand_letter = [((AppDelegate*)[[UIApplication sharedApplication] delegate]) brand_first_letter];
+    brands  = [((AppDelegate*)[[UIApplication sharedApplication] delegate]) brand_content];
 }
 
 - (void)didReceiveMemoryWarning
@@ -44,25 +35,34 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
+    return [brand_letter count];
+}
+
+-(NSArray*)sectionIndexTitlesForTableView:(UITableView *)tableView
+{
+    return brand_letter;
+}
+
+-(NSString*)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    return [brand_letter objectAtIndex:section];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
+    return [[brands objectAtIndex:section] count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    static NSString *CellIdentifier = @"brandcar";
+    BrandCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    // Configure the cell...
-    
+    BrandModel *model = [[brands objectAtIndex:[indexPath section]] objectAtIndex:[indexPath row]];
+    cell.name.text = model.name;
+    UIImage *image = [[UIImage alloc] initWithContentsOfFile:model.logo_img];
+    cell.logo_img.image = image;
+    cell.brandModel = model;
     return cell;
 }
 
@@ -109,13 +109,16 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    BrandCell *cell = (BrandCell*)sender;
+    id  viewController = segue.destinationViewController;
+    if ([viewController respondsToSelector:@selector(setBrandModel:)]) {
+        [viewController setValue:cell.brandModel forKey:@"brandModel"];
+    }
 }
 
 @end

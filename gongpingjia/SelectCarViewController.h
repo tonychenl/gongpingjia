@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SelectCarViewController : UITableViewController
+@interface SelectCarViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
+{
+    NSArray *brand_letter;
+    NSArray *brands;
+}
 
 @end
