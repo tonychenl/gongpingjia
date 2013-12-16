@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BrandModel.h"
 
 @interface MianViewController : UITableViewController<UITextFieldDelegate,UIActionSheetDelegate>
 {
@@ -14,6 +15,10 @@
     UILabel  *dateLabel;
     UIActionSheet *dateActionSheet;
     UIDatePicker  *datePicker;
+    BrandModel *brandModel;
+    NSDictionary *modelDic;
+    NSDictionary *sytelDic;
 }
 @property(strong,nonatomic) NSDate *date;
+-(void)brandModel:(BrandModel *)brand model:(NSDictionary*) model sytel:(NSDictionary*)style;
 @end

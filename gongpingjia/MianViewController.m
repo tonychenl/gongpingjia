@@ -14,6 +14,23 @@
 
 @implementation MianViewController
 
+-(void)setCarModel
+{
+    UILabel *mLable = (UILabel *)[self.tableView viewWithTag:110];
+    UILabel *mStyle = (UILabel *)[self.tableView viewWithTag:111];
+    NSString *modelStr = [NSString stringWithFormat:@"%@ %@",brandModel.name,[modelDic valueForKey:@"name"]];
+    mLable.text = modelStr;
+    mStyle.text = [sytelDic valueForKey:@"desc"];
+}
+
+-(void)brandModel:(BrandModel *)brand model:(NSDictionary *)model sytel:(NSDictionary *)style
+{
+    brandModel = brand;
+    modelDic = model;
+    sytelDic = style;
+    [self setCarModel];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
