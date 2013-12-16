@@ -13,7 +13,8 @@
 {
     BrandModel *brandModel;
     NSDictionary *modelDic;
-    NSMutableDictionary *dataDic;
+    NSDictionary *dataDic;
+    NSArray *dataKey;
 }
 -(void)brandModel:(BrandModel*) model modelDic:(NSDictionary*) dic;
 @end

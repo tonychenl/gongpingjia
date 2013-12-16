@@ -46,9 +46,6 @@
     [SVProgressHUD showWithStatus:@"loading..." maskType:SVProgressHUDMaskTypeGradient];
     NSDateFormatter *f = [[NSDateFormatter alloc] init];
     [f setDateFormat:@"YYYY"];
-    //NSString *url = [[NSString stringWithFormat:@"http://nj.gongpingjia.com/mobile/cars/get-detail-model/?model_slug=%@&year=%@",
-    //                 [modelDic valueForKey:@"slug"],
-    //                 [f stringFromDate:view.date]];
     NSString *url = [NSString stringWithFormat:@"http://nj.gongpingjia.com/mobile/cars/get-detail-model/?model_slug=%@&year=%@",[modelDic valueForKey:@"slug"],[f stringFromDate:view.date]];
     NSLog(@"%@",url);
     [manager GET:url parameters:Nil
@@ -58,12 +55,20 @@
                  NSString *status = [responseObject valueForKey:@"status"];
                  if ([status isEqual:success]) {
                      NSDictionary *tmpdic = [responseObject valueForKey:@"result"];
-                     
-                     [tmpdic keysSortedByValueUsingComparator:^NSComparisonResult(id obj1, id obj2) {
-                         NSLog(@"xxxxxxxxxxxxxxxxxxxxx");
-                         NSLog(@"%@",obj1);
-                         return NSOrderedDescending;
+                     dataDic = tmpdic;
+                     NSArray *tmpKey = [[NSArray alloc] initWithArray:[tmpdic allKeys]];
+                     dataKey = [tmpKey sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+                         NSInteger y1 = [obj1 integerValue];
+                         NSInteger y2 = [obj2 integerValue];
+                         if (y1 == y2) {
+                             return (NSComparisonResult)NSOrderedSame;
+                         }
+                         if (y1 > y2) {
+                             return (NSComparisonResult)NSOrderedAscending;
+                         }
+                         return (NSComparisonResult)NSOrderedDescending;
                      }];
+                     [self.tableView  reloadData];
                      [SVProgressHUD showSuccessWithStatus:@"Success"];
                  }else{
                      [SVProgressHUD showErrorWithStatus:@"未找到符合条件的车型"];
@@ -90,12 +95,16 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return [[dataDic allKeys] count];
+    return [dataKey count];
+}
+
+-(NSString*)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
+    return [dataKey objectAtIndex:section];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    NSString  *key = [[dataDic allKeys] objectAtIndex:section];
+    NSString  *key = [dataKey objectAtIndex:section];
     return [[dataDic valueForKey:key] count];
 }
 
@@ -103,9 +112,14 @@
 {
     static NSString *CellIdentifier = @"xinghaocell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    UILabel *text = (UILabel*)[cell viewWithTag:101];
+    UILabel *model = (UILabel*)[cell viewWithTag:102];
     
-    // Configure the cell...
-    
+    NSString  *key = [dataKey objectAtIndex:[indexPath section]];
+    NSDictionary *tDic =  [dataDic objectForKey:key];
+    NSString  *mKey = [[tDic allKeys] objectAtIndex:[indexPath row]];
+    model.text = mKey;
+    text.text = [tDic valueForKey:mKey];
     return cell;
 }
 
@@ -147,6 +161,11 @@
     return YES;
 }
 */
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
 
 /*
 #pragma mark - Navigation
