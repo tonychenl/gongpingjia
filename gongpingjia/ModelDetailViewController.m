@@ -8,6 +8,9 @@
 
 #import "ModelDetailViewController.h"
 #import "MianViewController.h"
+#import "AFHTTPRequestOperationManager.h"
+#import "AFHTTPRequestOperation.h"
+#import "SVProgressHUD.h"
 
 @interface ModelDetailViewController ()
 
@@ -32,8 +35,49 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self setTitle:[modelDic valueForKey:@"name"]];
+    dataDic = [[NSMutableDictionary alloc] init];
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
     MianViewController *view  = (MianViewController *)[self.navigationController.viewControllers objectAtIndex:0];
-    NSLog(@"%@",view.date);
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [SVProgressHUD showWithStatus:@"loading..." maskType:SVProgressHUDMaskTypeGradient];
+    NSDateFormatter *f = [[NSDateFormatter alloc] init];
+    [f setDateFormat:@"YYYY"];
+    //NSString *url = [[NSString stringWithFormat:@"http://nj.gongpingjia.com/mobile/cars/get-detail-model/?model_slug=%@&year=%@",
+    //                 [modelDic valueForKey:@"slug"],
+    //                 [f stringFromDate:view.date]];
+    NSString *url = [NSString stringWithFormat:@"http://nj.gongpingjia.com/mobile/cars/get-detail-model/?model_slug=%@&year=%@",[modelDic valueForKey:@"slug"],[f stringFromDate:view.date]];
+    NSLog(@"%@",url);
+    [manager GET:url parameters:Nil
+         success:^(AFHTTPRequestOperation *operation, id responseObject) {
+             if ([responseObject isKindOfClass:[NSDictionary class]]) {
+                 static NSString *success = @"success";
+                 NSString *status = [responseObject valueForKey:@"status"];
+                 if ([status isEqual:success]) {
+                     NSDictionary *tmpdic = [responseObject valueForKey:@"result"];
+                     
+                     [tmpdic keysSortedByValueUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+                         NSLog(@"xxxxxxxxxxxxxxxxxxxxx");
+                         NSLog(@"%@",obj1);
+                         return NSOrderedDescending;
+                     }];
+                     [SVProgressHUD showSuccessWithStatus:@"Success"];
+                 }else{
+                     [SVProgressHUD showErrorWithStatus:@"未找到符合条件的车型"];
+                     [self.navigationController popViewControllerAnimated:YES];
+                 }
+             }else{
+                 [SVProgressHUD showErrorWithStatus:@"未找到符合条件的车型"];
+                 [self.navigationController popViewControllerAnimated:YES];
+             }
+         }
+         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+             [SVProgressHUD showErrorWithStatus:@"Error"];
+             [self.navigationController popViewControllerAnimated:YES];
+         }];
 }
 
 - (void)didReceiveMemoryWarning
@@ -46,21 +90,18 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
+    return [[dataDic allKeys] count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
+    NSString  *key = [[dataDic allKeys] objectAtIndex:section];
+    return [[dataDic valueForKey:key] count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *CellIdentifier = @"xinghaocell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Configure the cell...
