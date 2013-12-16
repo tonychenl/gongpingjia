@@ -192,9 +192,6 @@
                                             <constraint firstItem="1hf-Vu-naa" firstAttribute="top" secondItem="Rms-B9-6Ko" secondAttribute="top" constant="1" id="0Q7-cv-Pu2"/>
                                             <constraint firstItem="1hf-Vu-naa" firstAttribute="centerX" secondItem="Rms-B9-6Ko" secondAttribute="centerX" type="default" id="PoP-zI-2va"/>
                                         </constraints>
-                                        <connections>
-                                            <segue destination="AJs-Dq-1gY" kind="push" id="BpH-Q1-aFO"/>
-                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -221,21 +218,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KV7-8r-GYl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="72" y="-152"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="TEF-mP-OUf">
-            <objects>
-                <viewController id="AJs-Dq-1gY" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="iYW-Rw-cHV">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="PZc-Oe-tMY"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7Eg-ew-oE0" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="712" y="-152"/>
         </scene>
         <!--Model Detail View Controller-->
         <scene sceneID="Ep8-aI-3Lq">
