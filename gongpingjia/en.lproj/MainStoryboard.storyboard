@@ -192,6 +192,9 @@
                                             <constraint firstItem="1hf-Vu-naa" firstAttribute="top" secondItem="Rms-B9-6Ko" secondAttribute="top" constant="1" id="0Q7-cv-Pu2"/>
                                             <constraint firstItem="1hf-Vu-naa" firstAttribute="centerX" secondItem="Rms-B9-6Ko" secondAttribute="centerX" type="default" id="PoP-zI-2va"/>
                                         </constraints>
+                                        <connections>
+                                            <segue destination="VT2-t2-JXv" kind="push" id="YXr-u2-zKu"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -305,7 +308,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="heC-OO-sTZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="712" y="465"/>
+            <point key="canvasLocation" x="712" y="493"/>
         </scene>
         <!--Select Car View Controller - 品牌-->
         <scene sceneID="5fD-7l-fyc">
@@ -468,6 +471,182 @@
             </objects>
             <point key="canvasLocation" x="1143" y="-756"/>
         </scene>
+        <!--View Controller - 精确估值-->
+        <scene sceneID="8u2-7n-z4N">
+            <objects>
+                <viewController id="G5B-SO-xLf" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="efY-ve-nCS">
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="carnull.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="qfV-s8-mGw">
+                                <rect key="frame" x="8" y="8" width="140" height="100"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="F0f-iC-ad2"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1a68ffdc6402a8e0a398960b90ed6f86abf7540d.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="aSl-bN-S0z">
+                                <rect key="frame" x="156" y="8" width="40" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="Vmc-LB-EVn"/>
+                                    <constraint firstAttribute="height" constant="40" id="hdc-z4-qqA"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="奥迪A4" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YXP-5H-Tyh">
+                                <rect key="frame" x="204" y="17" width="96" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="96" id="hUo-RK-bik"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.50196081399917603" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="上牌年代：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="65X-ZL-EsL">
+                                <rect key="frame" x="156" y="52" width="71" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="71" id="Vnp-PA-8ZN"/>
+                                    <constraint firstAttribute="height" constant="21" id="Zmt-bT-RXV"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="行驶里程：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LZ3-ws-X2l">
+                                <rect key="frame" x="156" y="81" width="72" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="72" id="1xs-tA-3JO"/>
+                                    <constraint firstAttribute="height" constant="21" id="Zea-qm-31t"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2013年" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1AO-35-Q7A">
+                                <rect key="frame" x="218" y="51" width="88" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="fBf-y8-YWq"/>
+                                    <constraint firstAttribute="width" constant="88" id="tnB-5i-UGG"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                                <color key="textColor" red="0.33254942602040816" green="0.33254942602040816" blue="0.33254942602040816" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2000公里" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F5J-L7-V0m">
+                                <rect key="frame" x="218" y="81" width="88" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                                <color key="textColor" red="0.3490196168422699" green="0.3490196168422699" blue="0.3490196168422699" alpha="1" colorSpace="deviceRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="guzhi.png" translatesAutoresizingMaskIntoConstraints="NO" id="azO-rp-eVF">
+                                <rect key="frame" x="156" y="108" width="153" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="153" id="KlM-HD-0VH"/>
+                                    <constraint firstAttribute="height" constant="34" id="mlF-MO-x0C"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2013款 奥迪A4" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kPI-SF-IfM">
+                                <rect key="frame" x="8" y="95" width="140" height="13"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0039215688593685627" green="0.15686275064945221" blue="0.44705885648727417" alpha="1" colorSpace="deviceRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="13" id="jXH-pG-knF"/>
+                                    <constraint firstAttribute="width" constant="140" id="vMf-I8-Dvd"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="1AO-35-Q7A" firstAttribute="top" secondItem="efY-ve-nCS" secondAttribute="top" constant="51" id="1lF-w7-e7M"/>
+                            <constraint firstItem="aSl-bN-S0z" firstAttribute="leading" secondItem="qfV-s8-mGw" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="3Hc-TD-ohZ"/>
+                            <constraint firstItem="azO-rp-eVF" firstAttribute="top" secondItem="efY-ve-nCS" secondAttribute="top" constant="108" id="8Za-Iv-jv1"/>
+                            <constraint firstItem="F5J-L7-V0m" firstAttribute="baseline" secondItem="LZ3-ws-X2l" secondAttribute="baseline" type="default" id="8iV-kr-sP7"/>
+                            <constraint firstItem="LZ3-ws-X2l" firstAttribute="leading" secondItem="qfV-s8-mGw" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="BNX-me-uWT"/>
+                            <constraint firstItem="YXP-5H-Tyh" firstAttribute="top" secondItem="efY-ve-nCS" secondAttribute="top" constant="17" id="Bif-mY-Ikf"/>
+                            <constraint firstAttribute="trailing" secondItem="1AO-35-Q7A" secondAttribute="trailing" constant="14" id="CiJ-kM-qWB"/>
+                            <constraint firstItem="65X-ZL-EsL" firstAttribute="leading" secondItem="qfV-s8-mGw" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="G9t-ZY-TPv"/>
+                            <constraint firstItem="YXP-5H-Tyh" firstAttribute="leading" secondItem="aSl-bN-S0z" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="OSM-NF-4Qe"/>
+                            <constraint firstItem="F5J-L7-V0m" firstAttribute="top" secondItem="65X-ZL-EsL" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="S3S-xJ-6fv"/>
+                            <constraint firstItem="qfV-s8-mGw" firstAttribute="top" secondItem="efY-ve-nCS" secondAttribute="top" constant="8" id="bNf-NX-l0E"/>
+                            <constraint firstItem="aSl-bN-S0z" firstAttribute="top" secondItem="qfV-s8-mGw" secondAttribute="top" type="default" id="d7e-MM-uav"/>
+                            <constraint firstAttribute="trailing" secondItem="YXP-5H-Tyh" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="dms-nZ-n7g"/>
+                            <constraint firstItem="azO-rp-eVF" firstAttribute="leading" secondItem="LZ3-ws-X2l" secondAttribute="leading" type="default" id="gYc-xt-zIQ"/>
+                            <constraint firstItem="1AO-35-Q7A" firstAttribute="trailing" secondItem="F5J-L7-V0m" secondAttribute="trailing" type="default" id="ih4-AO-B3D"/>
+                            <constraint firstItem="LZ3-ws-X2l" firstAttribute="top" secondItem="65X-ZL-EsL" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="l5U-NP-Ouz"/>
+                            <constraint firstItem="65X-ZL-EsL" firstAttribute="top" secondItem="efY-ve-nCS" secondAttribute="top" constant="52" id="mRE-f9-aFm"/>
+                            <constraint firstItem="kPI-SF-IfM" firstAttribute="bottom" secondItem="qfV-s8-mGw" secondAttribute="bottom" type="default" id="nNa-8d-hyl"/>
+                            <constraint firstItem="kPI-SF-IfM" firstAttribute="leading" secondItem="qfV-s8-mGw" secondAttribute="leading" type="default" id="oGw-n5-v0a"/>
+                            <constraint firstItem="F5J-L7-V0m" firstAttribute="leading" secondItem="1AO-35-Q7A" secondAttribute="leading" type="default" id="orq-6a-ecT"/>
+                            <constraint firstItem="LZ3-ws-X2l" firstAttribute="leading" secondItem="kPI-SF-IfM" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="qYJ-rJ-V1J"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="精确估值" id="jiE-hN-dJV"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CHB-Uy-SST" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2085" y="-616"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="MR5-Vo-Zm0">
+            <objects>
+                <tabBarController definesPresentationContext="YES" id="VT2-t2-JXv" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="R8j-6p-Mj9"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="hCR-zF-5uN">
+                        <rect key="frame" x="129" y="330" width="163" height="49"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="G5B-SO-xLf" kind="relationship" relationship="viewControllers" id="wSH-kS-lxK"/>
+                        <segue destination="Nkh-Em-0nM" kind="relationship" relationship="viewControllers" id="ebD-eZ-3gP"/>
+                        <segue destination="Q6F-tw-ken" kind="relationship" relationship="viewControllers" id="Z2d-3H-GNU"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="d4e-E3-8bI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1148" y="-160"/>
+        </scene>
+        <!--View Controller - Item3-->
+        <scene sceneID="JuH-Ds-WrT">
+            <objects>
+                <viewController id="Q6F-tw-ken" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="MMj-a0-7MH">
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item3" id="ybS-bQ-7TU"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JgU-ih-bJJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2085" y="555"/>
+        </scene>
+        <!--View Controller - Item 2-->
+        <scene sceneID="nT4-cV-uIP">
+            <objects>
+                <viewController id="Nkh-Em-0nM" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="NWf-lj-v0O">
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item 2" id="Uv9-SG-HYs"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Oe-Qz-0Wm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2085" y="-38"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="van-Ld-mYW">
             <objects>
@@ -484,6 +663,11 @@
             <point key="canvasLocation" x="-290" y="-152"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="1a68ffdc6402a8e0a398960b90ed6f86abf7540d.jpg" width="100" height="100"/>
+        <image name="carnull.jpg" width="300" height="200"/>
+        <image name="guzhi.png" width="327" height="81"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

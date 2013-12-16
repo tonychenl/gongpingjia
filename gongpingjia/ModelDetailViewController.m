@@ -169,7 +169,7 @@
     UILabel *text = (UILabel*)[cell viewWithTag:101];
     UILabel *model = (UILabel*)[cell viewWithTag:102];
     NSDictionary *styleDic = [NSDictionary dictionaryWithObjectsAndKeys:text.text,@"desc",model.text,@"style",nil];
-    
+    NSLog(@"%@",styleDic);
     MianViewController *view  = (MianViewController *)[self.navigationController.viewControllers objectAtIndex:0];
     [view brandModel:brandModel model:modelDic sytel:styleDic];
     [self.navigationController popToRootViewControllerAnimated:YES];
