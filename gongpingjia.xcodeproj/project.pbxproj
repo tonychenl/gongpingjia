@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7A25B0D7185FE7B600B3DC5F /* price_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A25B0D6185FE7B600B3DC5F /* price_bg.png */; };
+		7A25B0DA185FF3AE00B3DC5F /* KbbViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A25B0D9185FF3AE00B3DC5F /* KbbViewController.m */; };
 		7AF924CF185E9964003E38AB /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7AF924CC185E9964003E38AB /* SVProgressHUD.bundle */; };
 		7AF924D0185E9964003E38AB /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AF924CE185E9964003E38AB /* SVProgressHUD.m */; };
 		7AF924E5185E997A003E38AB /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AF924D3185E997A003E38AB /* AFHTTPRequestOperation.m */; };
@@ -43,6 +45,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7A25B0D6185FE7B600B3DC5F /* price_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = price_bg.png; sourceTree = "<group>"; };
+		7A25B0D8185FF3AE00B3DC5F /* KbbViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KbbViewController.h; sourceTree = "<group>"; };
+		7A25B0D9185FF3AE00B3DC5F /* KbbViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KbbViewController.m; sourceTree = "<group>"; };
 		7AF924CB185E9964003E38AB /* SVProgressHUD-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SVProgressHUD-Prefix.pch"; sourceTree = "<group>"; };
 		7AF924CC185E9964003E38AB /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
 		7AF924CD185E9964003E38AB /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
@@ -157,6 +162,7 @@
 		7AF924F4185EF42B003E38AB /* image */ = {
 			isa = PBXGroup;
 			children = (
+				7A25B0D6185FE7B600B3DC5F /* price_bg.png */,
 				7AF924F7185EF83B003E38AB /* guzhi.png */,
 				7AF924F5185EF454003E38AB /* carnull.jpg */,
 			);
@@ -216,6 +222,8 @@
 				7AFF1783185AE7D300C7E605 /* ModelViewController.m */,
 				7AFF1785185AFD7500C7E605 /* ModelDetailViewController.h */,
 				7AFF1786185AFD7500C7E605 /* ModelDetailViewController.m */,
+				7A25B0D8185FF3AE00B3DC5F /* KbbViewController.h */,
+				7A25B0D9185FF3AE00B3DC5F /* KbbViewController.m */,
 			);
 			path = gongpingjia;
 			sourceTree = "<group>";
@@ -287,6 +295,7 @@
 			files = (
 				7AF924CF185E9964003E38AB /* SVProgressHUD.bundle in Resources */,
 				BA8B11A91859E631006C8657 /* InfoPlist.strings in Resources */,
+				7A25B0D7185FE7B600B3DC5F /* price_bg.png in Resources */,
 				BA8B11B11859E631006C8657 /* Default.png in Resources */,
 				7AF924F8185EF83B003E38AB /* guzhi.png in Resources */,
 				7AF924F6185EF454003E38AB /* carnull.jpg in Resources */,
@@ -311,6 +320,7 @@
 				7AF924EA185E997A003E38AB /* AFURLConnectionOperation.m in Sources */,
 				7AF924E5185E997A003E38AB /* AFHTTPRequestOperation.m in Sources */,
 				7AF924E7185E997A003E38AB /* AFHTTPSessionManager.m in Sources */,
+				7A25B0DA185FF3AE00B3DC5F /* KbbViewController.m in Sources */,
 				7AF924EB185E997A003E38AB /* AFURLRequestSerialization.m in Sources */,
 				7AFF1781185ACB9200C7E605 /* BrandCell.m in Sources */,
 				7AF924ED185E997A003E38AB /* AFURLSessionManager.m in Sources */,
