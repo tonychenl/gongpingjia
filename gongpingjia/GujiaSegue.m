@@ -20,7 +20,6 @@
         BrandModel *brand = [source valueForKey:@"brandModel"];
         view.title = brand.name;
         [source.navigationController pushViewController:self.destinationViewController animated:YES];
-        NSLog(@"xx");
     }
 }
 

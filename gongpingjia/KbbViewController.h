@@ -20,13 +20,13 @@
     NSInteger _listPrice;
     NSString  *_mBrandName;
     NSString  *_mBrandSlug;
-    NSInteger *_mListPrice;
+    NSInteger _mListPrice;
     NSString  *_mModelDetailName;
     NSString  *_mModelDetailSlug;
     NSString  *_mModelMile;
     NSString  *_mModelName;
+    NSString  *_mModelYear;
     NSString  *_mModelSlug;
-    NSString  *_mModelThumbnail;
     NSInteger _mPrivatePartyPrice;
     NSInteger _mTradeInPrice;
     NSString  *_mUserCondition;
