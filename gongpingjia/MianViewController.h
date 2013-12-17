@@ -21,4 +21,6 @@
 }
 @property(strong,nonatomic) NSDate *date;
 -(void)brandModel:(BrandModel *)brand model:(NSDictionary*) model sytel:(NSDictionary*)style;
+
+-(BOOL)checkChoose;
 @end

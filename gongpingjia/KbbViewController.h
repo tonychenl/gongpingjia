@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BrandModel.h"
 
 @interface KbbViewController : UIViewController
 {
+@private
     NSInteger _avgMile;
     BOOL      _bFirst;
     NSInteger _basePrice;
@@ -25,7 +27,6 @@
     NSString  *_mModelName;
     NSString  *_mModelSlug;
     NSString  *_mModelThumbnail;
-    NSString  *_mModelYear;
     NSInteger _mPrivatePartyPrice;
     NSInteger _mTradeInPrice;
     NSString  *_mUserCondition;
@@ -44,6 +45,9 @@
     double    _tradeInRate;
     NSInteger _tradeInLimit;
     
+    BrandModel   *_brandModel;
+    NSDictionary *_modelDic;
+    NSDictionary *_sytelDic;
 }
 
 @property (weak, nonatomic) IBOutlet UIImageView *brandImg;
@@ -52,11 +56,14 @@
 @property (weak, nonatomic) IBOutlet UILabel *styleName;
 @property (weak, nonatomic) IBOutlet UILabel *year;
 @property (weak, nonatomic) IBOutlet UILabel *mliage;
+@property (weak, nonatomic) IBOutlet UILabel *price1;
 @property (weak, nonatomic) IBOutlet UILabel *price;
 @property (weak, nonatomic) IBOutlet UILabel *mliLabel;
 @property (weak, nonatomic) IBOutlet UILabel *statusLabel;
 - (IBAction)mliChange:(id)sender;
 - (IBAction)statusChange:(id)sender;
+@property (weak, nonatomic) IBOutlet UISlider *mliSlider;
+@property (weak, nonatomic) IBOutlet UISlider *statusSlider;
 
 @property (weak, nonatomic) IBOutlet UILabel *makertMaxPrice;
 @property (weak, nonatomic) IBOutlet UILabel *makertMinPrice;

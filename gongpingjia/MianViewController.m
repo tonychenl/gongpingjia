@@ -105,4 +105,17 @@
     // Dispose of any resources that can be recreated.
 }
 
+/*
+ 检查选择参数
+*/
+-(BOOL)checkChoose
+{
+    if (brandModel == nil || modelDic == nil ||  sytelDic == nil) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"注意" message:@"请选择车型" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+        [alert show];
+        return NO;
+    }
+    return YES;
+}
+
 @end
