@@ -59,6 +59,9 @@
     UIImage *logImg = [[UIImage alloc] initWithContentsOfFile:_brandModel.logo_img];
     self.brandImg.image = logImg;
     self.modelImg.image = modelImg;
+    CALayer *layer = [self.modelImg layer];
+    [layer setBorderWidth:1];
+    [layer setBorderColor:[[UIColor lightGrayColor] CGColor]];
     
     NSDateFormatter *formater = [[NSDateFormatter alloc] init];
     [formater setDateFormat:@"YYYY年"];

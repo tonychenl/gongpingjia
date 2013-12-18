@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "gongpingjia/KbbViewController.m"
-            timestampString = "409034345.435224"
+            timestampString = "409039928.189016"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "188"
-            endingLineNumber = "188"
+            startingLineNumber = "191"
+            endingLineNumber = "191"
             landmarkName = "-calculatePrice"
             landmarkType = "5">
          </BreakpointContent>

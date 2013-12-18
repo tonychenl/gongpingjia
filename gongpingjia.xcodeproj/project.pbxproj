@@ -10,6 +10,9 @@
 		7A25B0D7185FE7B600B3DC5F /* price_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A25B0D6185FE7B600B3DC5F /* price_bg.png */; };
 		7A25B0DA185FF3AE00B3DC5F /* KbbViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A25B0D9185FF3AE00B3DC5F /* KbbViewController.m */; };
 		7A25B0DD18601E4800B3DC5F /* GujiaSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A25B0DC18601E4800B3DC5F /* GujiaSegue.m */; };
+		7ADC3AEF18617137003E7C4D /* ReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADC3AEE18617137003E7C4D /* ReportViewController.m */; };
+		7ADC3AF21861756C003E7C4D /* avalible.png in Resources */ = {isa = PBXBuildFile; fileRef = 7ADC3AF01861756C003E7C4D /* avalible.png */; };
+		7ADC3AF31861756C003E7C4D /* gpj_tag.png in Resources */ = {isa = PBXBuildFile; fileRef = 7ADC3AF11861756C003E7C4D /* gpj_tag.png */; };
 		7AF924CF185E9964003E38AB /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7AF924CC185E9964003E38AB /* SVProgressHUD.bundle */; };
 		7AF924D0185E9964003E38AB /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AF924CE185E9964003E38AB /* SVProgressHUD.m */; };
 		7AF924E5185E997A003E38AB /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AF924D3185E997A003E38AB /* AFHTTPRequestOperation.m */; };
@@ -51,6 +54,10 @@
 		7A25B0D9185FF3AE00B3DC5F /* KbbViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KbbViewController.m; sourceTree = "<group>"; };
 		7A25B0DB18601E4800B3DC5F /* GujiaSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GujiaSegue.h; sourceTree = "<group>"; };
 		7A25B0DC18601E4800B3DC5F /* GujiaSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GujiaSegue.m; sourceTree = "<group>"; };
+		7ADC3AED18617137003E7C4D /* ReportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportViewController.h; sourceTree = "<group>"; };
+		7ADC3AEE18617137003E7C4D /* ReportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportViewController.m; sourceTree = "<group>"; };
+		7ADC3AF01861756C003E7C4D /* avalible.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = avalible.png; sourceTree = "<group>"; };
+		7ADC3AF11861756C003E7C4D /* gpj_tag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gpj_tag.png; sourceTree = "<group>"; };
 		7AF924CB185E9964003E38AB /* SVProgressHUD-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SVProgressHUD-Prefix.pch"; sourceTree = "<group>"; };
 		7AF924CC185E9964003E38AB /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
 		7AF924CD185E9964003E38AB /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
@@ -165,6 +172,8 @@
 		7AF924F4185EF42B003E38AB /* image */ = {
 			isa = PBXGroup;
 			children = (
+				7ADC3AF01861756C003E7C4D /* avalible.png */,
+				7ADC3AF11861756C003E7C4D /* gpj_tag.png */,
 				7A25B0D6185FE7B600B3DC5F /* price_bg.png */,
 				7AF924F7185EF83B003E38AB /* guzhi.png */,
 				7AF924F5185EF454003E38AB /* carnull.jpg */,
@@ -229,6 +238,8 @@
 				7A25B0D9185FF3AE00B3DC5F /* KbbViewController.m */,
 				7A25B0DB18601E4800B3DC5F /* GujiaSegue.h */,
 				7A25B0DC18601E4800B3DC5F /* GujiaSegue.m */,
+				7ADC3AED18617137003E7C4D /* ReportViewController.h */,
+				7ADC3AEE18617137003E7C4D /* ReportViewController.m */,
 			);
 			path = gongpingjia;
 			sourceTree = "<group>";
@@ -304,10 +315,12 @@
 				BA8B11B11859E631006C8657 /* Default.png in Resources */,
 				7AF924F8185EF83B003E38AB /* guzhi.png in Resources */,
 				7AF924F6185EF454003E38AB /* carnull.jpg in Resources */,
+				7ADC3AF31861756C003E7C4D /* gpj_tag.png in Resources */,
 				BA8B11B31859E631006C8657 /* Default@2x.png in Resources */,
 				7AFF177B185AB2C800C7E605 /* assets in Resources */,
 				BA8B11B51859E631006C8657 /* Default-568h@2x.png in Resources */,
 				BA8B11B81859E631006C8657 /* MainStoryboard.storyboard in Resources */,
+				7ADC3AF21861756C003E7C4D /* avalible.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -335,6 +348,7 @@
 				7AFF1784185AE7D300C7E605 /* ModelViewController.m in Sources */,
 				7AF924EC185E997A003E38AB /* AFURLResponseSerialization.m in Sources */,
 				7AF924D0185E9964003E38AB /* SVProgressHUD.m in Sources */,
+				7ADC3AEF18617137003E7C4D /* ReportViewController.m in Sources */,
 				BA8B11AF1859E631006C8657 /* AppDelegate.m in Sources */,
 				BA8B11BB1859E631006C8657 /* MianViewController.m in Sources */,
 				BA873C8A1859FDE500BAB4DF /* SelectCarViewController.m in Sources */,
