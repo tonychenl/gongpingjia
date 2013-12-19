@@ -10,6 +10,7 @@
 #import "BrandModel.h"
 #import "CorePlot-CocoaTouch.h"
 
+
 @interface ReportViewController : UIViewController<CPTPlotDataSource>
 {
     BrandModel   *_brandModel;
@@ -19,6 +20,7 @@
     
 @private
     CPTXYGraph   *mCPTXYGraph;
+    NSDictionary *mYearReportDic;
 }
 @property (weak, nonatomic) IBOutlet UIScrollView *mScrollView;
 @property (weak, nonatomic) IBOutlet UIImageView *modelImg;

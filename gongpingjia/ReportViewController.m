@@ -27,7 +27,7 @@
     return self;
 }
 
--(void)viewDidAppear:(BOOL)animated
+-(void)drawYearReport
 {
     mCPTXYGraph = [[CPTXYGraph alloc] initWithFrame:CGRectZero];
     CPTTheme *theme = [CPTTheme themeNamed:kCPTDarkGradientTheme];
@@ -46,40 +46,98 @@
     mCPTXYGraph.paddingTop    = 0.0f;
     mCPTXYGraph.paddingBottom = 0.0f;
     
-    mCPTXYGraph.plotAreaFrame.paddingLeft   = 45.0;
+    mCPTXYGraph.plotAreaFrame.paddingLeft   = 30.0;
     mCPTXYGraph.plotAreaFrame.paddingTop    = 10.0;
     mCPTXYGraph.plotAreaFrame.paddingRight  = 20.0;
-    mCPTXYGraph.plotAreaFrame.paddingBottom = 25.0;
+    mCPTXYGraph.plotAreaFrame.paddingBottom = 17.0;
+    
+    float xLength =  [[mYearReportDic valueForKey:@"svg_rect_data_num"] floatValue] + 0.5f;
+    NSArray *avgPrice = [mYearReportDic valueForKey:@"svg_rect_data_avg_price"];
+    float count = 0.0f;
+    for (NSString *value in avgPrice) {
+        count += [value floatValue];
+    }
+    
+    float max = (count / [[mYearReportDic valueForKey:@"svg_rect_data_num"] floatValue]) * 2.0;
+    
+    float xx = max / 3.0;
+    
+    int abc = 10;
+    float tmp = xx;
+    int index = 1;
+    
+    if (tmp<=10.0f) {
+        tmp = 5.0f;
+    }else{
+        while (tmp>10.0f) {
+            tmp /=abc;
+            if (tmp<=10.0f) {
+                break;
+            }
+            index++;
+        }
+        int a = ceil(tmp);
+        int p = index == 1 ?10:pow(10, index);
+        tmp = a * p;
+
+    }
     
     CPTXYPlotSpace *plotSpace = (CPTXYPlotSpace *)mCPTXYGraph.defaultPlotSpace;
-    plotSpace.yRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(0.0f) length:CPTDecimalFromFloat(300.0f)];
-    plotSpace.xRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(0.0f) length:CPTDecimalFromFloat(16.0f)];
+    plotSpace.yRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(0.0f) length:CPTDecimalFromFloat(tmp * 3.0f)];
+    plotSpace.xRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(0.0f) length:CPTDecimalFromFloat(xLength)];
+    
+    
     
     CPTXYAxisSet *axisSet = (CPTXYAxisSet *)mCPTXYGraph.axisSet;
-
+    
     CPTXYAxis *x = axisSet.xAxis;
-    //x.axisLineStyle = lineStyle;
-    //x.majorTickLineStyle = nil;
+    
+    CPTMutableTextStyle *textStyle = [CPTMutableTextStyle textStyle];
+    textStyle.color = [ CPTColor grayColor ];
+    textStyle.fontSize = 8.0f ;
+    
+    CPTMutableLineStyle *lineStyle = [CPTMutableLineStyle lineStyle];
+    lineStyle.lineColor = [CPTColor grayColor];
+    lineStyle.lineWidth = 1.0f;
+    
+    x.titleTextStyle = textStyle;
+    x.labelTextStyle = textStyle;
     x.minorTickLineStyle = nil;
-    x.majorIntervalLength = CPTDecimalFromFloat(5.0f);
-    x.orthogonalCoordinateDecimal = CPTDecimalFromString(@"0");
-    x.title = @"年代";
+    x.majorTickLineStyle = lineStyle;
+    //x.majorGridLineStyle = lineStyle;
+    x.axisLineStyle = lineStyle;
+    x.majorIntervalLength = CPTDecimalFromFloat(1.0f);
+    x.orthogonalCoordinateDecimal = CPTDecimalFromString(@"1");
+
     
     CPTXYAxis *y = axisSet.yAxis;
-    //y.axisLineStyle               = nil;
-    //y.majorTickLineStyle          = nil;
-    y.minorTickLineStyle          = nil;
-    y.majorIntervalLength         = CPTDecimalFromString(@"100");
+    y.titleTextStyle = textStyle;
+    y.labelTextStyle = textStyle;
+    y.minorTickLineStyle = nil;
+    y.majorTickLineStyle = lineStyle;
+    //x.majorGridLineStyle = lineStyle;
+    y.axisLineStyle = lineStyle;
+    y.majorIntervalLength         = CPTDecimalFromFloat(tmp);
     y.orthogonalCoordinateDecimal = CPTDecimalFromString(@"0");
-
-    CPTBarPlot *barPlot     = [CPTBarPlot tubularBarPlotWithColor:[CPTColor blueColor] horizontalBars:NO];
+    
+    CPTColor *color = [CPTColor colorWithComponentRed:14.0f green:13.0f blue:123.0f alpha:1.0f];
+    CPTBarPlot *barPlot     = [CPTBarPlot tubularBarPlotWithColor:color horizontalBars:NO];
     barPlot.dataSource      = self;
-    barPlot.baseValue       = CPTDecimalFromString(@"0");
-    barPlot.barOffset       = CPTDecimalFromFloat(0.25f);
-    barPlot.barCornerRadius = 2.0f;
+    barPlot.baseValue       = CPTDecimalFromString(@"1.5f");
+    //barPlot.barOffset       = CPTDecimalFromFloat(10.0f);
+    barPlot.barCornerRadius = 0.0f;
+    //barPlot.barWidth = [[NSDecimalNumber numberWithFloat:0.5f] decimalValue];
+    barPlot.barWidthScale = 0.8f;
+    
     barPlot.identifier      = @"Bar Plot 2";
     [mCPTXYGraph addPlot:barPlot toPlotSpace:plotSpace];
 }
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    //[self performSelector:@selector(loaddata) withObject:nil];
+}
+
 
 - (void)viewDidLoad
 {
@@ -137,7 +195,8 @@
             if ([status isEqual:success]) {
                 self.price.text = [NSString stringWithFormat:@"￥%@",[responseObject objectForKey:@"avg_price"]];
                 self.betweenPrice.text = [NSString stringWithFormat:@"￥%@-%@",[responseObject objectForKey:@"price_range_min"],[responseObject objectForKey:@"price_range_max"]];
-                
+                mYearReportDic = responseObject;
+                [self drawYearReport];
                 [SVProgressHUD showSuccessWithStatus:[responseObject objectForKey:@"msg"]];
             }else{
                 [SVProgressHUD showErrorWithStatus:[responseObject objectForKey:@"msg"]];
@@ -167,7 +226,8 @@
 
 -(NSUInteger)numberOfRecordsForPlot:(CPTPlot *)plot
 {
-    return 6;
+    int xLength =  [[mYearReportDic valueForKey:@"svg_rect_data_num"] floatValue] + 1.0f;
+    return xLength;
 }
 
 -(NSNumber *)numberForPlot:(CPTPlot *)plot field:(NSUInteger)fieldEnum recordIndex:(NSUInteger)index
@@ -182,8 +242,14 @@
                 
             case CPTBarPlotFieldBarTip:
                 num = (NSDecimalNumber *)[NSDecimalNumber numberWithUnsignedInteger:(index + 1) * (index + 1)];
+                if (index==0) {
+                    return [NSNumber numberWithFloat:0.0f];
+                }
                 if ( [plot.identifier isEqual:@"Bar Plot 2"] ) {
-                    num = [num decimalNumberBySubtracting:[NSDecimalNumber decimalNumberWithString:@"10"]];
+                    //num = (NSDecimalNumber *)[NSDecimalNumber numberWithInt:[num integerValue] * 100];
+                    NSArray *avgPrice = [mYearReportDic valueForKey:@"svg_rect_data_avg_price"];
+                    NSInteger price = [[avgPrice objectAtIndex:index-1] integerValue];
+                    return [NSNumber numberWithInteger:price];
                 }
                 break;
         }
