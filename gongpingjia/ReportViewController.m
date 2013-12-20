@@ -141,6 +141,7 @@
     //barPlot.baseValue       = CPTDecimalFromString(@"1.5f");
     //barPlot.barOffset       = CPTDecimalFromFloat(10.0f);
     barPlot.barCornerRadius = 0.0f;
+    barPlot.labelOffset = 1.0f;
     //barPlot.barWidth = [[NSDecimalNumber numberWithFloat:0.5f] decimalValue];
     barPlot.barWidthScale = 0.8f;
     
@@ -271,6 +272,22 @@
     }
     
     return num;
+}
+
+-(CPTLayer *)dataLabelForPlot:(CPTPlot *)plot recordIndex:(NSUInteger)idx
+{
+    if (idx == 0) {
+        return nil;
+    }
+    NSArray *avgPrice = [mYearReportDic valueForKey:@"svg_rect_data_avg_price"];
+    float price = [[avgPrice objectAtIndex:idx-1] floatValue];
+    CPTTextLayer *label            = [[CPTTextLayer alloc] initWithText:[NSString stringWithFormat:@"%.1f", price]];
+    CPTMutableTextStyle *textStyle = [label.textStyle mutableCopy];
+    
+    textStyle.color = [CPTColor lightGrayColor];
+    label.textStyle = textStyle;
+    return label;
+    
 }
 
 @end

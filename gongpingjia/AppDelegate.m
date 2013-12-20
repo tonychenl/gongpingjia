@@ -76,10 +76,10 @@ static NSMutableDictionary *car_model = nil;
             model.slug = [dic valueForKey:@"slug"];
             [array addObject:model];
         }
-        NSLog(@"%@",brand_first_letter);
-        NSLog(@"%@",brand_content);
-        NSLog(@"%d,%d",[brand_first_letter count],[brand_content count]);
-        NSLog(@"%@",car_model);
+        //NSLog(@"%@",brand_first_letter);
+        //NSLog(@"%@",brand_content);
+        //NSLog(@"%d,%d",[brand_first_letter count],[brand_content count]);
+        //NSLog(@"%@",car_model);
     });
 }
 
