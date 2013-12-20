@@ -107,8 +107,23 @@
     //x.majorGridLineStyle = lineStyle;
     x.axisLineStyle = lineStyle;
     x.majorIntervalLength = CPTDecimalFromFloat(1.0f);
-    x.orthogonalCoordinateDecimal = CPTDecimalFromString(@"1");
+    x.orthogonalCoordinateDecimal = CPTDecimalFromString(@"0");
 
+    x.labelingPolicy = CPTAxisLabelingPolicyNone;
+    NSArray *customTickLocations = [NSArray arrayWithObjects:[NSDecimalNumber numberWithInt:0], [NSDecimalNumber numberWithInt:1], [NSDecimalNumber numberWithInt:2], [NSDecimalNumber numberWithInt:3], [NSDecimalNumber numberWithInt:4],[NSDecimalNumber numberWithInt:5],[NSDecimalNumber numberWithInt:6],nil];
+    NSArray *dateYear = [mYearReportDic valueForKey:@"svg_rect_data_year"];
+    NSMutableArray *xAxisLabels         = [NSMutableArray arrayWithArray:dateYear];
+    [xAxisLabels insertObject:@"" atIndex:0];
+    NSUInteger labelLocation     = 0;
+    NSMutableArray *customLabels = [NSMutableArray arrayWithCapacity:[xAxisLabels count]];
+    for ( NSNumber *tickLocation in customTickLocations ) {
+        CPTAxisLabel *newLabel = [[CPTAxisLabel alloc] initWithText:[xAxisLabels objectAtIndex:labelLocation++] textStyle:x.labelTextStyle];
+        newLabel.tickLocation = [tickLocation decimalValue];
+        newLabel.offset       = x.labelOffset;// + x.majorTickLength;
+        //newLabel.rotation     = M_PI / 4;
+        [customLabels addObject:newLabel];
+    }
+    x.axisLabels = [NSSet setWithArray:customLabels];
     
     CPTXYAxis *y = axisSet.yAxis;
     y.titleTextStyle = textStyle;
@@ -123,7 +138,7 @@
     CPTColor *color = [CPTColor colorWithComponentRed:14.0f green:13.0f blue:123.0f alpha:1.0f];
     CPTBarPlot *barPlot     = [CPTBarPlot tubularBarPlotWithColor:color horizontalBars:NO];
     barPlot.dataSource      = self;
-    barPlot.baseValue       = CPTDecimalFromString(@"1.5f");
+    //barPlot.baseValue       = CPTDecimalFromString(@"1.5f");
     //barPlot.barOffset       = CPTDecimalFromFloat(10.0f);
     barPlot.barCornerRadius = 0.0f;
     //barPlot.barWidth = [[NSDecimalNumber numberWithFloat:0.5f] decimalValue];

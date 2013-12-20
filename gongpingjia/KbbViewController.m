@@ -219,15 +219,18 @@
 
 -(void)updateView
 {
-    self.price.text = [NSString stringWithFormat:@"￥%d",_mPrivatePartyPrice];
+    NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
+    numberFormatter.numberStyle = NSNumberFormatterCurrencyStyle;
+    
+    self.price.text = [numberFormatter stringForObjectValue:[NSNumber numberWithInteger:_mPrivatePartyPrice]];// [NSString stringWithFormat:@"￥%d",_mPrivatePartyPrice];
     self.price1.text = self.price.text;
     self.mliLabel.text = [NSString stringWithFormat:@"您车的里程数：%d公里",_mUserMile];
     self.mliage.text = [NSString stringWithFormat:@"%d公里",_mUserMile];
     self.statusLabel.text = [NSString stringWithFormat:@"您车的车况：%@",_mUserCondition];
-    self.makertMaxPrice.text = [NSString stringWithFormat:@"￥%d",_marketHighPrice];
-    self.makertAvgPrice.text = [NSString stringWithFormat:@"￥%d",_marketPrice];
-    self.makertMinPrice.text = [NSString stringWithFormat:@"￥%d",_marketLowPrice];
-    self.changePrice.text = [NSString stringWithFormat:@"￥%d",_mTradeInPrice];
-    self.suggestPrice.text = [NSString stringWithFormat:@"￥%d",_mListPrice];
+    self.makertMaxPrice.text = [numberFormatter stringForObjectValue:[NSNumber numberWithInteger:_marketHighPrice]];// [NSString stringWithFormat:@"￥%d",_marketHighPrice];
+    self.makertAvgPrice.text = [numberFormatter stringForObjectValue:[NSNumber numberWithInteger:_marketPrice]];// [NSString stringWithFormat:@"￥%d",_marketPrice];
+    self.makertMinPrice.text = [numberFormatter stringForObjectValue:[NSNumber numberWithInteger:_marketLowPrice]];// [NSString stringWithFormat:@"￥%d",_marketLowPrice];
+    self.changePrice.text = [numberFormatter stringForObjectValue:[NSNumber numberWithInteger:_mTradeInPrice]];// [NSString stringWithFormat:@"￥%d",_mTradeInPrice];
+    self.suggestPrice.text = [numberFormatter stringForObjectValue:[NSNumber numberWithInteger:_mListPrice]];// [NSString stringWithFormat:@"￥%d",_mListPrice];
 }
 @end
